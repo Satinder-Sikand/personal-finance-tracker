@@ -1,0 +1,139 @@
+
+  .error:focus {
+    outline: none !important;
+    border:1px solid red;
+    box-shadow: 0 0 10px #719ECE;
+  }
+
+ /* Style for the entire expenditure tracker container */
+.expenditure-tracker {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #fffffe; /* Light gray background */
+    max-width: 80%; /* Limit the max width for the entire section */
+    min-height: 100vh; /* Make it take the full viewport height */
+    margin: 0 auto;
+  }
+
+
+
+  @media (max-width: 1000px) {
+      .expenditure-tracker {
+          max-width: 800px;
+      }
+
+      .tables:first-child {
+        margin-top: 1em;
+    }
+  }
+
+  @media (min-width: 1000px) {
+      .flex-container {
+        display: flex;
+    }
+    
+    .tables {
+         padding-left: 1em; margin-left:1em;
+      }
+
+  }
+  
+  /* Style for group tables */
+  .group-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .totals {
+    display: flex;
+    border-radius: 5px;
+  }
+
+  .totals h3 {
+      max-height: fit-content;
+      padding-left: 1em;
+  }
+
+  .group-header h3 {
+      margin: 0;
+      cursor: pointer;
+      font-weight: bold;
+  }
+
+  .tables{
+      background-color: #eff0f3;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+      padding: 15px;
+  }
+
+  .total{
+    background-color: #eff0f3;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: 0;
+    }
+
+  
+
+  table {
+    /* width: 95%; */
+    margin-bottom: 2em;
+    margin-top: 15px;
+    border-collapse: collapse;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  table th,
+  table td {
+    padding: 10px;
+    text-align: left;
+    border: 3px solid #0d0d0d;
+  }
+
+  table th:first-child,
+  table td:first-child { 
+    width: 80%;
+}
+  
+  table th {
+    color: #1f1135;
+  }
+  
+  table tfoot td {
+    color: #1f1135;
+    font-weight: bold;
+  }
+  
+  /* Style for collapsed tables */
+  table[hidden] {
+    display: none;
+  }
+
+    .delete {
+        display: none;
+    }
+
+  .table-row:hover .delete{
+    display: block;
+  }
+  
+  .highlight {
+    border: 3px double #ff8e3c;
+}
+
+  h3:hover {
+    text-decoration: underline;
+  }
+  

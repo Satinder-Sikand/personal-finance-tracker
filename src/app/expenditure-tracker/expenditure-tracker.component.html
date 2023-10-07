@@ -1,0 +1,66 @@
+<div class="expenditure-tracker">
+    <h2 style="text-align: center;">Monthly Expenditure Tracker</h2>
+
+    <section class="flex-container">
+        <section>
+        <form  ngNativeValidate #form (submit)="form.checkValidity()? goodExpenditure(groupselect.value):null">
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" [(ngModel)]="description" required>
+            
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" type="number" [(ngModel)]="amount" style="min-width: 50px;" step="0.01" required>
+
+            <label for="Group">Group:</label>
+            <select type="string" id="group" name="group" ngModel #groupselect required aria-placeholder="Please fill out this field">
+                <option *ngFor="let group of getGroups()">{{group}}</option>
+            </select>
+        
+            <button type="submit">Add Expenditure</button>
+        </form>
+        <form>
+            <input type="text" id="group-name" name="group-name" ngModel #groupname>
+            <button type="button" (click)="addGroup(groupname.value)">Add Group</button> 
+        </form>
+        </section>
+    <section style="width: 100%;">
+        <div *ngFor="let group of getGroupValues()" class="tables" id="{{group.name}}id">
+            <div class="group-header">
+                <h3 (click)="group.collapsed = !group.collapsed">{{group.name}}</h3>
+                <button (click)="deleteGroup(group.name)" class="delete-group" (mouseenter)="highlightCard(group.name)" (mouseleave)="removeHighlightCard(group.name)">Delete Group</button>
+            </div>
+            
+            <div >
+                <table [hidden]="group.collapsed" style="margin-left: auto; margin-right: auto;">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let expenditure of group.expenditures; let i=index" class="table-row" id="{{group.name+i+'id'}}">
+                            <td> <input type="text" [(ngModel)]="expenditure.description" (click)="!expenditure.editing && editExpenditure(i, group.name)" (blur)="editExpenditure(i, group.name)" [readonly]="!expenditure.editing" > </td>
+                            <td> <input type="number" [(ngModel)]="expenditure.amount"  (click)="!expenditure.editing && editExpenditure(i, group.name)" (blur)="editExpenditure(i, group.name, $event.currentTarget)" [readonly]="!expenditure.editing" style="min-width: 50px;" step="0.01"> 
+                                <button class="delete" (click)="deleteExpenditure(i, group.name)" (mouseenter)="highlightExpenditure(group.name, i)" (mouseleave)="removeHighlightExpenditure(group.name, i)">Delete</button> 
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Group Total</td>
+                            <td>{{calculateGroupTotal(group.name)}}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+        <div class="total" >
+            <div class="totals">
+                <h3 style="width: 70%">Final Total:</h3>
+                <h3 style="padding-right: 1em;">{{calculateTotal()}}</h3>   
+            </div>
+        </div>
+    </section>
+    
+    </section>
+  </div>
