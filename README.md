@@ -2,26 +2,28 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
 
-## Development server
+## Live Demo
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+https://satinder-sikand.github.io/personal-finance-tracker/
 
-## Code scaffolding
+## Description
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Have you ever wanted to keep a track of your finances? Make a list of your expenditures? See how much everything is costing you, but don't want to bother with the hassle of making an Excel file and all those pesky SUM() commands? Then this is the perfect option for you. You can do all that hear with an intuitive and simple UI.
 
-## Build
+## How to use
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+There is a form you can use to submit an expenditure with a description of it and the amount. You select the group that the expenditure belongs to (or if you don't care, leave it with Other). You can add your own groups for better organization as well. 
 
-## Running unit tests
+Don't worry, you can also edit the description and amount after adding them to the group. Simply select their text boxes and edit to your hearts content. 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Don't want a group anymore and it's expenditures? There is a delete button to get rid of the group as well! The group to be deleted gets highlighted so you know for sure what you're deleting. 
 
-## Running end-to-end tests
+Don't want an expenditure anymore? There's a delete button for that too that pops up when you're in the row for that expenditure. It gets highlighted when hovering over the delete button so you once again know for sure what you're deleting.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## TODO
 
-## Further help
+Some features to be added:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+-Be able to drag and drop to rearrange group orders
+-Use localStorage features to prevent data being deleted after closing the browser or by reloading it
+-Create a download button so that you can import it afterwards and have all your information pop back in
